@@ -1,0 +1,45 @@
+# Find in path - case sensitive
+function fn() {
+	if [[ $# -eq 0 ]]; then
+		echo "Too few arguments!\n"
+		exit 1
+	elif [[ $# -eq 1 ]]; then
+		path="."
+	else
+		path=$2
+	fi
+	find $path -name $1
+}
+
+# Find in path - case insensitive
+function fni() {
+	if [[ $# -eq 0 ]]; then
+		echo "Too few arguments!\n"
+		exit 1
+	elif [[ $# -eq 1 ]]; then
+		path="."
+	else
+		path=$2
+	fi
+	find $path -iname $1
+}
+
+# `cd` into whatever is the forefront Finder window.
+cdf() {
+    cd "`osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)'`"
+}
+
+# Create a new directory and enter it
+function md() {
+	mkdir -p "$@" && cd "$@"
+}
+
+# Direct it all to /dev/null
+function nullify() {
+    "$@" >/dev/null 2>&1
+}
+
+# `shellswitch [bash |zsh]` Must be in /etc/shells
+shellswitch () {
+	chsh -s $(brew --prefix)/bin/$1
+}

@@ -1,0 +1,103 @@
+# GNU or MacOS?
+if ls --color > /dev/null 2>&1; then # GNU `ls`
+	ls_color_flag='--color'
+else # macOS `ls`
+	ls_color_flag='-G'
+fi
+
+# Colorful `ls`
+alias ls='ls ${ls_color_flag}'
+alias l='ls -l'
+alias la='ls -al'
+alias lsd='ls -l | grep "^d"'
+alias lt='ls -lt'
+alias lat='ls -lat'
+alias ltr='ls -ltr'
+alias latr='ls -latr'
+
+# `kill` shortcuts
+alias k='kill'
+alias k9='kill -9'
+alias k0='kill -0'
+alias k3='kill -3'
+
+# `ps` shortcuts
+alias ps='ps -f'
+alias psa='ps -e'
+alias psn='ps | grep'
+alias psni='psn -i'
+alias psan='psa | grep'
+alias psani='psan -i'
+
+# Quicker navigation
+alias ..='cd ..'
+alias cd..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+
+# Shortcuts
+alias dl="cd ~/Downloads"
+alias dt="cd ~/Desktop"
+alias p="cd ~/projects"
+alias g='git'
+alias c='pygmentize -O style=monokai -f console256 -g'
+alias s='source'
+alias t='touch'
+alias h='history'
+alias j='jobs -l'
+alias cl='clear'
+alias df='df -h'
+alias du='du -hs'
+alias mkdir='mkdir -p'
+alias mount='mount | column -t'
+
+# Misc
+alias now='date +"%T"'
+alias nowd='date +"%d-%m-%Y"'
+alias hosts='sudo vim /etc/hosts'
+
+# Sublime Text
+alias st='open -a "Sublime Text"'
+
+# IP addresses
+alias ip='dig +short myip.opendns.com @resolver1.opendns.com'
+alias localip='ipconfig getifaddr en0'
+alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+
+# Recursively delete `.DS_Store` files
+alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+
+# Empty the Trash on all mounted volumes and the main HDD.
+# Also, clear Apple’s System Logs to improve shell startup speed.
+# Finally, clear download history from quarantine. https://mths.be/bum
+alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl; sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'"
+
+# Show/hide hidden files in Finder
+alias show='defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder'
+alias hide='defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder'
+
+# Hide/show all desktop icons (useful when presenting)
+alias hidedesktop='defaults write com.apple.finder CreateDesktop -bool false && killall Finder'
+alias showdesktop='defaults write com.apple.finder CreateDesktop -bool true && killall Finder'
+
+# Disable Spotlight
+alias spotoff='sudo mdutil -a -i off'
+# Enable Spotlight
+alias spoton='sudo mdutil -a -i on'
+
+# Kill all the tabs in Chrome to free up memory
+# [C] explained: http://www.commandlinefu.com/commands/view/402/exclude-grep-from-your-grepped-output-of-ps-alias-included-in-description
+alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
+
+# Lock the screen (when going AFK)
+alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+
+# Print each PATH entry on a separate line
+alias path='echo -e ${PATH//:/\\n}'
+
+# Git config private and business
+alias gcpg='git config --global user.name "Krzysztof Zmudzinski" && git config --global user.email "k.zmudzinski@gmail.com"'
+alias gcbg='git config --global user.name "Krzysztof Zmudzinski" && git config --global user.email "kzmudzinski@egnyte.com"'
+alias gcpl='git config user.name "Krzysztof Zmudzinski" && git config "k.zmudzinski@gmail.com"'
+alias gcbl='git config user.name "Krzysztof Zmudzinski" && git config "kzmudzinski@egnyte.com"'

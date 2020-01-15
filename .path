@@ -1,0 +1,8 @@
+HOME_BIN_DIR=~/bin
+JAVA_BIN_DIR='/usr/local/opt/openjdk@11/bin'
+COREUTILS_DIR="$(brew --prefix coreutils)/libexec/gnubin"
+FINDUTILS_DIR="$(brew --prefix findutils)/libexec/gnubin"
+MOREUTILS_DIR="$(brew --prefix findutils)/libexec/bin"
+GNU_SED_DIR="$(brew --prefix gnu-sed)/libexec/gnubin"
+
+export PATH="${HOME_BIN_DIR}:${JAVA_BIN_DIR}:${GNU_SED_DIR}:${COREUTILS_DIR}:${FINDUTILS_DIR}:${MOREUTILS_DIR}:${PATH}"
