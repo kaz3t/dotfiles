@@ -177,7 +177,6 @@ set login_item_list to {¬
     "Docker",¬
     "Egnyte Connect",¬
     "Flux",¬
-    "Kap",¬
     "Spectacle",¬
     "Tunnelblick"¬
 }
