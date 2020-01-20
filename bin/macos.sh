@@ -160,8 +160,8 @@ function configure_keyboard() {
     # Enable full keyboard access for all controls which enables Tab selection in modal dialogs
     defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
     # Set a blazingly fast keyboard repeat rate
-    defaults write NSGlobalDomain KeyRepeat -int 1
-    defaults write NSGlobalDomain InitialKeyRepeat -int 15
+    defaults write NSGlobalDomain KeyRepeat -int 6
+    defaults write NSGlobalDomain InitialKeyRepeat -int 35
     # Set language and text formats
     defaults write NSGlobalDomain AppleLanguages -array "en" "en-US" "pl"
     defaults write NSGlobalDomain AppleLocale -string "en_US@currency=USD"
