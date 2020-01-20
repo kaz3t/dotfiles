@@ -69,6 +69,7 @@ brew install git-lfs
 brew install htop
 brew install ack
 brew install autojump
+brew install jenv
 brew install jq
 brew install mtr
 brew install mysql
