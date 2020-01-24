@@ -57,9 +57,15 @@ sudo bash -c 'echo /usr/local/bin/bash >> /etc/shells'
 # Change to the new shell, prompts for password
 chsh -s /usr/local/bin/bash
 
+# Install JDK
+brew install openjdk@11
+sudo ln -sfn $(brew --prefix)/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk
+
 # Install misc
 
-brew install openjdk@11
+brew install maven
+brew install maven-completion
+brew install maven-shell
 brew install bazelisk
 brew install gmp
 brew install grep
