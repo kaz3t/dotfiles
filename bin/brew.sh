@@ -67,6 +67,7 @@ brew install maven
 brew install maven-completion
 brew install maven-shell
 brew install bazelisk
+brew install docker-credential-helper
 brew install gmp
 brew install grep
 brew install node
