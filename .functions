@@ -40,6 +40,6 @@ function nullify() {
 }
 
 # `shellswitch [bash |zsh]` Must be in /etc/shells
-shellswitch () {
+function shellswitch() {
 	chsh -s $(brew --prefix)/bin/$1
 }
